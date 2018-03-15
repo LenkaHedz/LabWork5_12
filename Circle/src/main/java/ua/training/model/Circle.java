@@ -5,7 +5,7 @@ package ua.training.model;
  * @autor Hedz Olena
  * @version 1.0
  */
-public class Circle extends Shape {
+public class Circle extends Shape implements Cloneable {
     private double radius;
 
     /** Создает новый круг
@@ -70,6 +70,21 @@ public class Circle extends Shape {
     @Override
     public String getShapeClass() {
         return this.getClass().getSimpleName();
+    }
+
+
+    /** Функция для получения клон круга
+     * @return Возвращает клон круга
+     */
+    @Override
+    public Circle clone() {
+        try{
+            Circle resutl = (Circle)super.clone();
+            return resutl;
+        }catch ( CloneNotSupportedException ex) {
+            ex.printStackTrace();
+            return null;
+        }
     }
 
     @Override
